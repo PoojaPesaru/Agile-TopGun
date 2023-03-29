@@ -1,0 +1,65 @@
+{% load static %}
+<html>
+<head>
+	<title>Task Scheduler</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Custom CSS -->
+    {% load static %}
+	<link href="{{ STATIC_URL}}css/style.css }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+{% block content %}
+    <div class="card bg-secondary bg-secondary bg-gradient text-white p-5">
+        <div class="container bg-secondary bg-secondary bg-gradient text-white p-5">
+            <div class="bg-gra-02 p-t-130 p-b-100 font-poppins">
+                <h1>Task List</h1>
+                <table class="table mt-4">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Task Description</th>
+                            <th>Task Owner</th>
+                            <th>Due Date</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Task 1</td>
+                            <td>This is Task 1</td>
+                            <td>I Patel</td>
+                            <td>3/28/2023</td>
+                            <td>8:05</td>
+                        </tr>
+                      <!--  {% for task in tasks %} -->
+                      <!--  <tr>
+                            <td>{{ task.name }}</td>
+                            <td>{{ task.description }}</td>
+                            <td>{{ task.owner }}</td>
+                            <td>{{ task.due_date }}</td>
+                            <td>{{ task.duration }}</td>
+                        </tr> -->
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'jquery/jquery-3.2.1.slim.min.js' %}"></script>
+    <script src="{% static 'popper/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+</html>
+{% endblock %}

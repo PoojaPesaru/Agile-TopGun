@@ -1,0 +1,25 @@
+{% load static %}
+<html>
+<head>
+	<title>Task Scheduler</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Custom CSS -->
+    {% load static %}
+	<link href="{{ STATIC_URL}}css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+{% block content %}
+
+<div class="container center card bg-secondary bg-secondary bg-gradient text-white p-5">
+    <h2>Upload a new document</h2>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+    </form>
+</div>
+
+</body>
+{% endblock %}
