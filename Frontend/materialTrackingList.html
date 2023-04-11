@@ -10,11 +10,18 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" crossorigin="anonymous">
 </head>
 
-<body><div class="bootstrap_datatables">
-<div class="container py-5">
-  <header class="text-center text-black">
-    <h1 class="display-4">Material Tracking</h1>
-  </header>
+<body>
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase mb-5" id="mainNav">
+    <div class="container"><a class="navbar-brand" href="#page-top">Solar EPC SYSTEM</a><button class="navbar-toggler text-white bg-primary navbar-toggler-right text-uppercase rounded" data-bs-toggle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" data-bs-target="#navbarResponsive"><i class="fa fa-bars"></i></button></div>
+</nav>
+<header class="text-center text-black masthead pb-0">
+<h2 class="font-weight-light">Material Tracking</h2>
+<a href="materialTracking.html" type="button" class="btn btn-secondary">Add Material</a>
+</div>
+</header>
+
+<div class="bootstrap_datatables row register-form mb-0">
+<div class="container ">
   <div class="row py-5">
     <div class="col-lg-10 mx-auto">
       <div class="card rounded shadow border-0">
@@ -28,6 +35,7 @@
                   <th>Quantity</th>
                   <th>Retailer</th>
                   <th>Date</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -37,6 +45,7 @@
                   <td>10</td>
                   <td>Abc</td>
                   <td>2023/04/25</td>
+                  <td><a href="materialTrackingView.html" type="button" class="btn btn-secondary">view</button></td>
                 </tr>
                 <tr>
                   <td>Item 2</td>
@@ -44,6 +53,7 @@
                   <td>20</td>
                   <td>Xyz</td>
                   <td>2022/07/25</td>
+                  <td><a type="button" class="btn btn-secondary">View</button></td>
                 </tr>
               </tbody>
             </table>
