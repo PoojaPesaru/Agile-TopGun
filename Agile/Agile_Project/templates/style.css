@@ -1,0 +1,116 @@
+/* Add some spacing to the top of the page */
+body {
+	margin-top: 2rem;
+    background-image: linear-gradient(to right, rgb(0, 166, 255) , rgb(210, 210, 203));
+}
+
+/* Style the form inputs */
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+	background-color: #f7f7f7;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+/* Style the form submit button */
+button[type="submit"] {
+	margin-top: 1rem;
+	background-color: #007bff;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+button[type="submit"]:hover {
+	background-color: #0069d9;
+}
+
+/* Style the table */
+table {
+	margin-top: 2rem;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table th {
+	background-color:#2B0A1A;
+	color: #fff;
+}
+
+table td,
+table th {
+	border: 1px solid #dee2e6;
+	padding: 0.75rem;
+	text-align: center;
+}
+
+/* Style the table rows based on status */
+table tr.todo {
+	background-color: #f8d7da;
+}
+
+table tr.inprogress {
+	background-color: #fff3cd;
+}
+
+table tr.done {
+	background-color: #d4edda;
+}
+
+/* Style the table row hover effect */
+table tbody tr:hover {
+	background-color: #f2f2f2;
+	cursor: pointer;
+}
+
+/* Style the modal */
+.modal-content {
+	background-color: #f7f7f7;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.modal-header {
+	background-color: #007bff;
+	color: #fff;
+}
+
+/* Style the modal form inputs */
+.modal-body input[type="text"],
+.modal-body input[type="date"],
+.modal-body input[type="time"],
+.modal-body select {
+	background-color: #fff;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+/* Style the modal form submit button */
+.modal-footer button[type="submit"] {
+	background-color: #007bff;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.modal-footer button[type="submit"]:hover {
+	background-color: #0069d9;
+}
+
+/* Style the delete button */
+.delete-btn {
+	color: #dc3545;
+	cursor: pointer;
+}
+
+.delete-btn:hover {
+	text-decoration: underline;
+}
+h1{
+    color:#dee2e6;
+}
