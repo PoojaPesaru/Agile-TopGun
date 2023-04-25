@@ -1,7 +1,3 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-
 from .forms import TaskForm
 from .models import Task
 #from .forms import DocumentForm
@@ -9,7 +5,7 @@ from .models import Document
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 
 #user registration view
@@ -70,6 +66,10 @@ def task_list(request):
     return render(request, 'TaskSchedular.html', {'tasks': tasks})
 
 #Task Detail View
+def task_detail(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    return render(request, 'ShiftSchedularDetail.html', {'task': task})
+
 
 #add new material
 def add_material(request):

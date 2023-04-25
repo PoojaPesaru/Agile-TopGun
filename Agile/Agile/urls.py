@@ -23,6 +23,7 @@ urlpatterns = [
     path('logout/', Agile_Project.views.logout_view, name='logout'),
     path('task-list/', Agile_Project.views.task_list, name='task_list'),
     path('add-task/', Agile_Project.views.add_task, name='add_task'),
+    path('tasks/<int:task_id>/', Agile_Project.views.task_detail, name='task_detail'),
     path('material-tracking/', Agile_Project.views.material_tracking, name='material_tracking'),
     path('add-material/', Agile_Project.views.add_material, name='add_material'),
     path('document-list/', Agile_Project.views.document_list, name='document_list')

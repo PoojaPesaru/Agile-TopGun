@@ -47,7 +47,7 @@
                     <td>{{ task.location }}</td>
                     <td>{{ task.task_name }}</td>
                     <td>{{ task.time }}</td>
-                    <td><a>view</a></td>
+                    <td><a href="{% url 'task_detail' task.id %}" class="btn btn-secondary">view</a></td>
                   </tr>
                 {% empty %}
                   <tr>
