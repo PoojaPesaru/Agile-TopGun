@@ -1,17 +1,14 @@
 from django.db import models
 
+from django.db import models
+
 class Task(models.Model):
-    name = models.CharField(max_length=200)
-    description = models.TextField()
-    owner = models.CharField(max_length=200)
-    status_choices = (
-        ('todo', 'To Do'),
-        ('inprogress', 'In Progress'),
-        ('done', 'Done'),
-    )
-    status = models.CharField(max_length=20, choices=status_choices, default='todo')
-    due_date = models.DateField()
-    time = models.TimeField()
+    employee_name = models.CharField(max_length=100, default='')
+    client_name = models.CharField(max_length=100, default='')
+    location = models.CharField(max_length=100, default='')
+    task_name = models.CharField(max_length=100, default='')
+    time = models.DateField()
+
 
 class Document(models.Model):
     title = models.CharField(max_length=255)
