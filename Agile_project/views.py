@@ -61,15 +61,9 @@ def document_list(request):
 #Tasks list
 def task_list(request):
     tasks = Task.objects.all()
-    for task in tasks:
-        print(task.employee_name)
-        print(task.client_name)
-        print(task.location)
-        print(task.task_name)
-        print(task.time)
-    return render(request, 'TaskSchedular.html', {'tasks': tasks})
+    print(tasks)
 
-#Task Detail View
+    return render(request, 'TaskSchedular.html', {'tasks': tasks})
 
 #add new material
 def add_material(request):
@@ -79,14 +73,15 @@ def add_material(request):
 #add new task
 def add_task(request):
     if request.method == 'POST':
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('task_list')
+        employee_name = request.POST['employee_name']
+        client_name = request.POST['client_name']
+        location = request.POST['location']
+        task_name = request.POST['task_name']
+        new_task = Task(employee_name=employee_name, client_name=client_name, location=location, task_name=task_name)
+        new_task.save()
+        return render(request, 'TaskSchedular.html')
     else:
-        form = TaskForm()
-
-    return render(request, 'ShiftSchedular.html', {'form': form})
+        return render(request, 'TaskSchedular.html')
 
 
 

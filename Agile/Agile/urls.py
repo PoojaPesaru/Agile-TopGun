@@ -14,11 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
+import Agile_Project.views
 
-from Agile_Project import views
 urlpatterns = [
-    path('add-task/', views.add_task, name='add_task'),
-    path('task-list/', views.task_list, name='task_list'),
-    path('document-list/', views.document_list, name='document_list'),
-    path('upload-document/', views.upload_document, name='upload_document'),
+    path('', Agile_Project.views.dashboard, name='dashboard'),
+    path('register/', Agile_Project.views.registration_view, name='registration_view'),
+    path('login/', Agile_Project.views.login_view, name='login'),
+    path('logout/', Agile_Project.views.logout_view, name='logout'),
+    path('task-list/', Agile_Project.views.task_list, name='task_list'),
+    path('add-task/', Agile_Project.views.add_task, name='add_task'),
+    path('material-tracking/', Agile_Project.views.material_tracking, name='material_tracking'),
+    path('add-material/', Agile_Project.views.add_material, name='add_material'),
+    path('document-list/', Agile_Project.views.document_list, name='document_list')
 ]
+
