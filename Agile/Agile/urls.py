@@ -18,10 +18,13 @@ import Agile_Project.views
 
 urlpatterns = [
     path('', Agile_Project.views.dashboard, name='dashboard'),
+    path('register/', Agile_Project.views.registration_view, name='registration_view'),
+    path('login/', Agile_Project.views.login_view, name='login'),
+    path('logout/', Agile_Project.views.logout_view, name='logout'),
     path('task-list/', Agile_Project.views.task_list, name='task_list'),
     path('add-task/', Agile_Project.views.add_task, name='add_task'),
     path('material-tracking/', Agile_Project.views.material_tracking, name='material_tracking'),
     path('add-material/', Agile_Project.views.add_material, name='add_material'),
-    path('document-list/', Agile_Project.views.add_task, name='document_list')
+    path('document-list/', Agile_Project.views.document_list, name='document_list')
 ]
 
