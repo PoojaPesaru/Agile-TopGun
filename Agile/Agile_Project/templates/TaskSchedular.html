@@ -40,23 +40,21 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>employee 1</td>
-                  <td>client 1</td>
-                  <td>Hoboken</td>
-                  <td>Task 1</td>
-                  <td>12:00</td>
-                  <td><a href="ShiftSchedularDetail.html" class="btn btn-secondary">view</a></td>
-                </tr>
-                <tr>
-                  <td>employee 2</td>
-                  <td>cllient 2</td>
-                  <td>New York</td>
-                  <td>Task 2</td>
-                  <td>3:00</td>
-                  <td><a href="#" class="btn btn-secondary">View</a></td>
-                </tr>
-              </tbody>
+                {% for task in tasks %}
+                  <tr>
+                    <td>{{ task.employee_name }}</td>
+                    <td>{{ task.client_name }}</td>
+                    <td>{{ task.location }}</td>
+                    <td>{{ task.task_name }}</td>
+                    <td>{{ task.time }}</td>
+                    <td><a>view</a></td>
+                  </tr>
+                {% empty %}
+                  <tr>
+                    <td colspan="6">No tasks found.</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
             </table>
           </div>
         </div>
