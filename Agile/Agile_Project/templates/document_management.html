@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+    {% load static %}
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Client Document Management</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href= "{% static 'assets/css/Pretty-Registration-Form-.css' %}">
 </head>
 
 <body>
@@ -19,14 +20,31 @@
                     <div class="card mb-5">
                         <div class="card-body p-sm-5">
                             <h4 class="text-center mb-4">Client document Management</h4>
-                            <form method="post">
-                                <div class="mb-3"><input class="form-control" type="text" id="name-2" name="name" placeholder="Name"></div>
-                                <div class="mb-3"><input id="email-2" class="form-control" type="text" name="client_id" placeholder="Client- id" /></div>
-                                <div class="mb-3"></div>
-                                <div></div><input id="email-2" class="form-control" type="email" name="email" placeholder="Document type" />
-                            </form><textarea id="message-2" class="form-control" name="document_description" rows="6" placeholder="Document Description"></textarea>
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="name-2">Name:</label>
+                                    <input class="form-control" type="text" id="name-2" name="name" placeholder="Name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="client_id">Client ID:</label>
+                                    <input id="client_id" class="form-control" type="text" name="client_id" placeholder="Client ID">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="document_type">Document Type:</label>
+                                    <input id="document_type" class="form-control" type="text" name="document_type" placeholder="Document Type">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="document_description">Document Description:</label>
+                                    <textarea id="document_description" class="form-control" name="document_description" rows="6" placeholder="Document Description"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="document">Select Document:</label>
+                                    <input type="file" class="form-control" id="document" name="document">
+                                </div>
+                                <button class="btn btn-secondary d-block w-100" type="submit">Upload Document</button>
+                            </form>
                         </div>
-                    </div><button class="btn btn-secondary d-block w-100" type="UPLOAD DOCUMENT">Upload Document </button>
                 </div>
             </div>
         </div>
