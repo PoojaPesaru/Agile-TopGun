@@ -16,6 +16,14 @@ class Material(models.Model):
     manufacturer = models.CharField(max_length=50, default='')
     date = models.DateField()
 
+class Invoice(models.Model):
+    customer_name = models.CharField(max_length=255)
+    invoice_number = models.CharField(max_length=50)
+    invoice_date = models.DateField()
+    item_purchased = models.CharField(max_length=255)
+    details = models.TextField()
+
+
 class Document(models.Model):
     title = models.CharField(max_length=255)
     file = models.FileField(upload_to='documents/')

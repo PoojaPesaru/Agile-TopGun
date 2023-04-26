@@ -2,6 +2,9 @@ from .forms import TaskForm
 from .models import Task
 from .forms import MaterialForm
 from .models import Material
+from .forms import InvoiceForm
+from .models import Invoice
+
 
 
 #from .forms import DocumentForm
@@ -71,7 +74,6 @@ def add_material(request):
         form = MaterialForm()
     return render(request, 'materialTracking.html', {'form': form})
 
-
 #add new task
 def add_task(request):
     if request.method == 'POST':
@@ -94,12 +96,19 @@ def task_detail(request, task_id):
     task = get_object_or_404(Task, pk=task_id)
     return render(request, 'ShiftSchedularDetail.html', {'task': task})
 
-def document_list(request):
+def invoice_list(request):
+    invoices = Invoice.objects.all()
+    return render(request, 'invoiceTrackingList.html', {'invoices': invoices})
 
-    return render(request, 'documentList.html')
-
-
-
+def add_invoice(request):
+    if request.method == 'POST':
+        form = InvoiceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('invoice_list')
+    else:
+        form = InvoiceForm()
+    return render(request, 'invoicetrackingform.html', {'form': form})
 
 def upload_document(request):
     if request.method == 'POST' and request.FILES['document']:
@@ -108,7 +117,6 @@ def upload_document(request):
         fs.save(document.name, document)
         return render(request, 'documentList.html')
     return redirect('document_list')
-
 
 def document_list(request):
     documents = Document.objects.all()
