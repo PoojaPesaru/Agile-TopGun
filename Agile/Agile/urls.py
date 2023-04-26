@@ -29,8 +29,9 @@ urlpatterns = [
     path('add-material/', Agile_Project.views.add_material, name='add_material'),
     path('add-invoice/', Agile_Project.views.add_invoice, name='add_invoice'),
     path('document-list/', Agile_Project.views.document_list, name='document_list'),
-    path('upload/', Agile_Project.views.upload_document, name='upload_document'),
+    path('upload-document/', Agile_Project.views.upload_document, name='upload_document'),
     path('invoice-list/', Agile_Project.views.invoice_list, name='invoice_list'),
+    path('view-pdf/', Agile_Project.views.view_pdf, name='view-pdf'),
 
 ]
 
