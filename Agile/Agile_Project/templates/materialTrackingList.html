@@ -33,28 +33,26 @@
                   <th>Item Name</th>
                   <th>Item code</th>
                   <th>Quantity</th>
-                  <th>Retailer</th>
+                  <th>Manufacturer</th>
                   <th>Date</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
+              {% for material in materials %}
+                  <tr>
+                    <td>{{ material.name }}</td>
+                    <td>{{ material.code }}</td>
+                    <td>{{ material.quantity }}</td>
+                    <td>{{ material.manufacturer }}</td>
+                    <td>{{ material.date }}</td>
+                    <td><a href="{% url 'material_detail' material.id %}" class="btn btn-secondary">view</a></td>
+                  </tr>
+                {% empty %}
                 <tr>
-                  <td>Item 1</td>
-                  <td>I001</td>
-                  <td>10</td>
-                  <td>Abc</td>
-                  <td>2023/04/25</td>
-                  <td><a href="materialTrackingView.html" type="button" class="btn btn-secondary">view</button></td>
-                </tr>
-                <tr>
-                  <td>Item 2</td>
-                  <td>I002</td>
-                  <td>20</td>
-                  <td>Xyz</td>
-                  <td>2022/07/25</td>
-                  <td><a type="button" class="btn btn-secondary">View</button></td>
-                </tr>
+                    <td colspan="6">No Materials found.</td>
+                  </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>

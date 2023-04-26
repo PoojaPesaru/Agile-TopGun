@@ -1,42 +1,45 @@
-<!DOCTYPE html>
-<html lang="en"> 
+    {% load static %}
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>material tracking</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/Pretty-Registration-Form-.css">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href= "{% static 'assets/css/Pretty-Registration-Form-.css' %}">
 </head>
 
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
         <div class="container"><a class="navbar-brand" href="#page-top">Solar EPC SYSTEM</a><button class="navbar-toggler text-white bg-primary navbar-toggler-right text-uppercase rounded" data-bs-toggle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" data-bs-target="#navbarResponsive"><i class="fa fa-bars"></i></button></div>
     </nav>
+    <header class="text-center text-black masthead pb-0">
+        <h3 style="border-bottom-style: none;">Material Tracking</h3>
+    </header>
     <div class="row register-form mt-5">
         <div class="col-md-8 offset-md-2">
-            <form class="custom-form">
-                <h1 style="border-style: none;">Material Tracking</h1>
+            <form method="POST" action="{% url 'add_material' %}"  class="custom-form">
+                {% csrf_token %}
                 <div class="row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Item name&nbsp;</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="name"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Item code</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="code"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="pawssword-input-field">Quantity</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text" /></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="quantity"/></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="repeat-pawssword-input-field">Retailer</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text" style="margin-right: 79px;padding-right: 0px;margin-bottom: 16px;"></div>
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="repeat-pawssword-input-field">manufacturer</label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="manufacturer" style="margin-right: 79px;padding-right: 0px;margin-bottom: 16px;"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field">Date</label></div>
-                    <div class="col-sm-4 input-column"><input class="form-control" type="password" /></div>
-                </div><button class="btn btn-secondary" type="button">Accept material</button>
+                    <div class="col-sm-4 input-column"><input class="form-control" type="date" name="date"></div>
+                </div><button class="btn btn-secondary" type="submit">Accept material</button>
             </form>
         </div>
     </div>

@@ -9,6 +9,12 @@ class Task(models.Model):
     task_name = models.CharField(max_length=100, default='')
     time = models.DateField()
 
+class Material(models.Model):
+    name = models.CharField(max_length=50, default='')
+    code = models.CharField(max_length=10, default='')
+    quantity = models.PositiveIntegerField()
+    manufacturer = models.CharField(max_length=50, default='')
+    date = models.DateField()
 
 class Document(models.Model):
     title = models.CharField(max_length=255)

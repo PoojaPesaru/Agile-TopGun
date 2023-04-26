@@ -1,5 +1,9 @@
 from .forms import TaskForm
 from .models import Task
+from .forms import MaterialForm
+from .models import Material
+
+
 #from .forms import DocumentForm
 from .models import Document
 
@@ -34,47 +38,38 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
-#dashboard view
-def dashboard(request):
-    user = request.user # access the user object using request.user
-    return render(request, 'dashboard.html', {'user': user})
-
-
 #logout view
 def logout_view(request):
     logout(request)
     return redirect('dashboard') # Replace 'login' with the URL name of your app's login page
 
+#dashboard view
+def dashboard(request):
+    user = request.user # access the user object using request.user
+    return render(request, 'dashboard.html', {'user': user})
+
 #Material Tracking
 def material_tracking(request):
-
-    return render(request, 'materialTrackingList.html')
-
-def document_list(request):
-
-    return render(request, 'documentList.html')
-
-#Tasks list
-def task_list(request):
-    tasks = Task.objects.all()
-    for task in tasks:
-        print(task.employee_name)
-        print(task.client_name)
-        print(task.location)
-        print(task.task_name)
-        print(task.time)
-    return render(request, 'TaskSchedular.html', {'tasks': tasks})
+    materials = Material.objects.all()
+    return render(request, 'materialTrackingList.html',{'materials': materials})
 
 #Task Detail View
-def task_detail(request, task_id):
-    task = get_object_or_404(Task, pk=task_id)
-    return render(request, 'ShiftSchedularDetail.html', {'task': task})
-
+def material_detail(request, material_id):
+    material = get_object_or_404(Material, pk=material_id)
+    print(material.code)
+    return render(request, 'MaterialTrackingView.html', {'material': material})
 
 #add new material
 def add_material(request):
+    if request.method == 'POST':
+        form = MaterialForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('material_tracking')
+    else:
+        form = MaterialForm()
+    return render(request, 'materialTracking.html', {'form': form})
 
-        return render(request, 'materialTracking.html')
 
 #add new task
 def add_task(request):
@@ -88,6 +83,24 @@ def add_task(request):
 
     return render(request, 'ShiftSchedular.html', {'form': form})
 
+#Tasks list
+def task_list(request):
+    tasks = Task.objects.all()
+    return render(request, 'TaskSchedular.html', {'tasks': tasks})
+
+#Task Detail View
+def task_detail(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    return render(request, 'ShiftSchedularDetail.html', {'task': task})
+
+
+
+
+
+
+def document_list(request):
+
+    return render(request, 'documentList.html')
 
 
 #def upload_document(request):
