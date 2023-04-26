@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
+from django.core.files.storage import FileSystemStorage
 
 #user registration view
 def registration_view(request):
@@ -93,28 +94,22 @@ def task_detail(request, task_id):
     task = get_object_or_404(Task, pk=task_id)
     return render(request, 'ShiftSchedularDetail.html', {'task': task})
 
-
-
-
-
-
 def document_list(request):
 
     return render(request, 'documentList.html')
 
 
-#def upload_document(request):
-  #  if request.method == 'POST':
-   #     form = DocumentForm(request.POST,request.FILES)
-    #    if form.is_valid():
-     #       form.save()
-      #      return HttpResponseRedirect(reverse('document_list'))
-  #  else:
-      #  form = DocumentForm()
-
-  #  return render(request, 'upload_document.html', {'form': form})
 
 
-#def document_list(request):
-   # documents = Document.objects.all()
-  #  return render(request, 'document_list.html', {'documents': documents})
+def upload_document(request):
+    if request.method == 'POST' and request.FILES['document']:
+        document = request.FILES['document']
+        fs = FileSystemStorage()
+        fs.save(document.name, document)
+        return render(request, 'documentList.html')
+    return redirect('document_list')
+
+
+def document_list(request):
+    documents = Document.objects.all()
+    return render(request, 'documentList.html', {'documents': documents})
