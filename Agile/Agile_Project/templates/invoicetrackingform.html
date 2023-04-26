@@ -1,4 +1,4 @@
-    {% load static %}
+{% load static %}
 <html lang="en">
 
 <head>
@@ -15,33 +15,32 @@
             <button class="navbar-toggler text-white bg-primary navbar-toggler-right text-uppercase rounded" data-bs-toggle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" data-bs-target="#navbarResponsive"><i class="fa fa-bars"></i></button></div>
     </nav>
     <header class="text-center text-black masthead pb-0">
-        <h3 style="border-bottom-style: none;">Shift schedular</h3>
+        <h3 style="border-bottom-style: none;">Invoice Tracking</h3>
     </header>
     <div class="row register-form mt-6">
         <div class="col-md-8 offset-md-2">
-            <form method="POST" action="{% url 'add_task' %}"  class="custom-form">
+            <form method="POST" action="{% url 'add_invoice' %}"  class="custom-form">
                 {% csrf_token %}
                 <div class="row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Customer Name</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name=" "></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="customer_name"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">invoice number &nbsp;</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text"  name=""></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text"  name="invoice_number"></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="pawssword-input-field">Invoice Date</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name=""></div>
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="pawssword-input-field">details</label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="details"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-4 label-column"><label class="col-form-label" for="repeat-pawssword-input-field">item purchased</label></div>
-                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name=""></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="item_purchased"></div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field">details </label></div>
-                    <div class="col"><input class="form-control" type="date" name="
-"></div>
-                </div><button class="btn btn-secondary" type="submit">Schedule&nbsp;</button>
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="dropdown-input-field">Invoice Date </label></div>
+                    <div class="col"><input class="form-control" type="date" name="invoice_date"></div>
+                </div><button class="btn btn-secondary" type="submit">Submit&nbsp;</button>
             </form>
         </div>
     </div>

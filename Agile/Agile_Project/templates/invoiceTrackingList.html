@@ -15,8 +15,8 @@
     <div class="container"><a class="navbar-brand" href="#page-top">Solar EPC SYSTEM</a><button class="navbar-toggler text-white bg-primary navbar-toggler-right text-uppercase rounded" data-bs-toggle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" data-bs-target="#navbarResponsive"><i class="fa fa-bars"></i></button></div>
 </nav>
 <header class="text-center text-black masthead pb-0">
-<h2 class="font-weight-light">Material Tracking</h2>
-<a href="{% url 'add_material' %}" type="button" class="btn btn-secondary">Add invoice</a>
+<h2 class="font-weight-light">Invoice Tracking</h2>
+<a href="{% url 'add_invoice' %}" type="button" class="btn btn-secondary">Add invoice</a>
 </div>
 </header>
 
@@ -38,13 +38,13 @@
                 </tr>
               </thead>
               <tbody>
-              {% for material in materials %}
+              {% for invoice in invoices %}
                   <tr>
                     <td>{{ invoice.customer_name }}</td>
-                    <td>{{ invoice_invoice_number}}</td>
-                    <td>{{ invoice_invoice_date }}</td>
-                    <td>{{ invoice_item_purchased }}</td>
-                    <td>{{ invoice_details }}</td>
+                    <td>{{ invoice.invoice_number}}</td>
+                    <td>{{ invoice.invoice_date }}</td>
+                    <td>{{ invoice.item_purchased }}</td>
+                    <td>{{ invoice.details }}</td>
 
                   </tr>
                 {% empty %}
