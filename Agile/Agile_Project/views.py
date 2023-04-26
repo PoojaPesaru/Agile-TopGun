@@ -15,7 +15,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.core.files.storage import FileSystemStorage
-
+from django.http import FileResponse
+from django.conf import settings
+import os
 #user registration view
 def registration_view(request):
     if request.method == 'POST':
@@ -111,13 +113,23 @@ def add_invoice(request):
     return render(request, 'invoicetrackingform.html', {'form': form})
 
 def upload_document(request):
-    if request.method == 'POST' and request.FILES['document']:
-        document = request.FILES['document']
-        fs = FileSystemStorage()
-        fs.save(document.name, document)
-        return render(request, 'documentList.html')
-    return redirect('document_list')
+    return render(request, 'document_management.html')
 
 def document_list(request):
     documents = Document.objects.all()
     return render(request, 'documentList.html', {'documents': documents})
+
+
+def view_pdf(request):
+    # get the file path
+    file_path = os.path.join(settings.STATIC_ROOT, 'assets/Solar_Epc.pdf')
+
+    # open the file
+    with open(file_path, 'rb') as pdf:
+        # create a FileResponse object with the pdf file
+        response = FileResponse(pdf, content_type='application/pdf')
+
+        # set the Content-Disposition header to force download or view of the file
+        response['Content-Disposition'] = 'inline; filename="Solar_Epc.pdf"'
+
+        return response
