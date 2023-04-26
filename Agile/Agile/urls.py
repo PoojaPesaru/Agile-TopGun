@@ -27,6 +27,7 @@ urlpatterns = [
     path('material-tracking/', Agile_Project.views.material_tracking, name='material_tracking'),
     path('materials/<int:material_id>/', Agile_Project.views.material_detail, name='material_detail'),
     path('add-material/', Agile_Project.views.add_material, name='add_material'),
-    path('document-list/', Agile_Project.views.document_list, name='document_list')
+    path('document-list/', Agile_Project.views.document_list, name='document_list'),
+    path('upload/', Agile_Project.views.upload_document, name='upload_document'),
 ]
 
